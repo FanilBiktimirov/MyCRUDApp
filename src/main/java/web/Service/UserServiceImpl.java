@@ -1,38 +1,40 @@
 package web.Service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import web.UserDAO.JpaUserDAO;
+import org.springframework.stereotype.Service;
+import web.UserDAO.UserDAO;
 import web.model.User;
 
 import java.util.List;
 
+@Service
 public class UserServiceImpl implements UserService {
 
     @Autowired
-    private JpaUserDAO jpaUserDAO;
+    private UserDAO userDAO;
 
     @Override
     public List<User> getUserList() {
-        return null;
+        return userDAO.getUserList();
     }
 
     @Override
     public User getUserById(long id) {
-        return null;
+        return userDAO.getUserById(id);
     }
 
     @Override
     public void saveUser(User user) {
-
+        userDAO.saveUser(user);
     }
 
     @Override
     public void update(long id, User updatedUser) {
-
+        userDAO.update(id, updatedUser);
     }
 
     @Override
     public void delete(long id) {
-
+        userDAO.delete(id);
     }
 }
