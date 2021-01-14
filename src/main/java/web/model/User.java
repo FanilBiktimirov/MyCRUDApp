@@ -15,23 +15,21 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @Column(name = "Name")
+    @Column(name = "name")
     @NotEmpty(message = "Name should not be empty")
     @Size(min = 2, max = 30, message = "Name should be between 2 and 30 characters")
     private String name;
 
-    @Column(name = "Second_name")
+    @Column(name = "second_name")
     @NotEmpty(message = "Second name should not be empty")
     @Size(min = 2, max = 30, message = "Name should be between 2 and 30 characters")
     private String secondName;
 
-    @Column(name = "Age")
+    @Column(name = "age")
     @Min(value = 0, message = "Age should be greater than 0")
     private long age;
 
     public User(String name, String secondName, long age) {
-        this.id = id;
-
         this.name = name;
         this.secondName = secondName;
         this.age = age;

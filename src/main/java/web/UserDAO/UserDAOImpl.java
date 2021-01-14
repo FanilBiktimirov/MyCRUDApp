@@ -1,6 +1,5 @@
 package web.UserDAO;
 
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import web.model.User;
@@ -38,13 +37,8 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public void update(long id, User updatedUser) {
-        User userToBeUpdated = getUserById(id);
-        userToBeUpdated.setName(updatedUser.getName());
-        userToBeUpdated.setSecondName(updatedUser.getSecondName());
-        userToBeUpdated.setAge(updatedUser.getAge());
-        entityManager.persist(userToBeUpdated);
-
+    public void update(User updatedUser) {
+        entityManager.merge(updatedUser);
     }
 
     @Override
